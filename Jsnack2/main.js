@@ -11,22 +11,24 @@ function randomNumber(min, max) {
 }
 
 let n = randomNumber(1, 100);
-let userNumber = Number(prompt('Indovina il numero estratto da 1 a 100:'));
+let userNumber = null;
 
-// do {
-//    let userNumber = Number(prompt('Indovina il numero estratto da 0 a 10:'));
-//     if (userNumber < n) {
-//         console.log("Il numero è troppo basso");
-//     } else if (userNumber > n) {
-//         console.log("Il numero è troppo alto");
-//     } else {
-//         console.log("Hai indovinato!");
-//     }
+do {
+    if (userNumber === null) {
+        userNumber = Number(prompt('Indovina il numero estratto da 0 a 100:'));
+    } else if (userNumber < n) {
+        userNumber = Number(prompt('Numero troppo basso! Riprova..<br>Indovina il numero estratto da 0 a 100:'));
+    } else if (userNumber > n) {
+        userNumber = Number(prompt('Numero troppo alto! Riprova..<br>Indovina il numero estratto da 0 a 100:'));
+    }
 
-//     console.log(userNumber);
-//     console.log(n)
-// } while (userNumber !== n );
+    console.log(userNumber);
+    console.log(n)
+} while (userNumber !== n );
 
+document.body.innerHTML += `<p>Hai indovinato!</p>`;
+
+/*
 if (userNumber === n) {
     document.body.innerHTML += `<p>Hai indovinato!</p>`;
 } else {
@@ -43,3 +45,4 @@ if (userNumber === n) {
     }
     document.body.innerHTML += `<p>Hai indovinato!</p>`;
 }
+*/
